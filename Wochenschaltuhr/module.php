@@ -15,6 +15,10 @@
             {
                 // Diese Zeile nicht löschen.
                 parent::Create();
+
+                //Variablenprofil anlegen
+                $this->Var_Pro_Erstellen();  
+
                 $this->RegisterPropertyString("Alarmname", "");
                 $this->RegisterPropertyString("Alarms", "");
                 $this->RegisterPropertyString("Offset", "");
@@ -23,8 +27,7 @@
                 $this->RegisterVariableBoolean("EditTime", "Neue Zeit übernhemen", "WT.NewTime");
 		        $this->EnableAction("EditTime");
                 $this->CreateTimerEvent("NewTime");
-                //Variablenprofil anlegen
-                $this->Var_Pro_Erstellen();          
+        
             }
 
         // Überschreibt die intere IPS_ApplyChanges($id) Funktion
