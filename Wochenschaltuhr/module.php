@@ -38,23 +38,23 @@
                if(($this->ReadPropertyString("Alarms") != "") AND ($this->ReadPropertyString("Offset") != "")){ 
                     #Prüfe auf doppelte Einträge
                     if($this->unique_multidim_array(json_decode($this->ReadPropertyString("Alarms"), true), "Day") == true){
-                        $this->SetStatus(104);#Instanz ist inaktiv!
+                        $this->SetStatus(102);#Instanz ist inaktiv!
                         $this->SetStatus(202);}#Doppelter Wochentag                    
                     #Prüfe auf doppelte Einträge
                     elseif($this->unique_multidim_array(json_decode($this->ReadPropertyString("Offset"), true), "OffsetID") == true){
-                        $this->SetStatus(104);#Instanz ist inaktiv!
+                        $this->SetStatus(102);#Instanz ist inaktiv!
                         $this->SetStatus(203);}#Doppelte Offset ID
                     #Prüfe auf doppelte Einträge
                	    elseif($this->unique_multidim_array(json_decode($this->ReadPropertyString("Offset"), true), "OffsetMin") == true){
-                        $this->SetStatus(104);#Instanz ist inaktiv!
+                        $this->SetStatus(102);#Instanz ist inaktiv!
                         $this->SetStatus(204);}#Doppelte Offset Zeit
                     #Prüfe auf doppelte Einträge
                	    elseif($this->unique_multidim_array(json_decode($this->ReadPropertyString("Offset"), true), "OffsetAktion") == true){
-                        $this->SetStatus(104);#Instanz ist inaktiv!                       
+                        $this->SetStatus(102);#Instanz ist inaktiv!                       
                         $this->SetStatus(205);}#Doplleter Offset Name
                     #Prüfe auf doppelte Einträge
                	    elseif($this->unique_multidim_array(json_decode($this->ReadPropertyString("Offset"), true), "OffsetColor") == true){
-                        $this->SetStatus(104);#Instanz ist inaktiv!
+                        $this->SetStatus(102);#Instanz ist inaktiv!
                         $this->SetStatus(206);}#Dopllete Offset Farbe
                     else{
                         $this->SetStatus(102);}#Instanz ist aktiv!
