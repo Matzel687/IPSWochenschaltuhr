@@ -1,6 +1,6 @@
 <?
     // Klassendefinition
-    class IPSWecker extends IPSModule
+    class WeeklyTimer extends IPSModule
      {
         // Der Konstruktor des Moduls
         // Überschreibt den Standard Kontruktor von IPS
