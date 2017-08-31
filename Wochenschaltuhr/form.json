@@ -1,0 +1,120 @@
+{
+    "elements":
+    [
+        { "type": "ValidationTextBox", "name": "Alarmname", "caption": "Name Timer" },
+        {
+            "type": "List",
+            "name": "Alarms",
+            "caption": "Days / switching times",
+            "rowCount": 7,
+            "add": true,
+            "delete": true,
+            "sort": {
+                "column": "day",
+                "direction": "ascending"
+                },
+            "columns": [{
+                "label": "Day",
+                "name": "Day",
+                "width": "auto",
+                "add": "",
+               
+                "edit": {
+                    "type": "Select",
+                    "caption": "Day",
+                    "options": [
+                        { "label": "Monday", "value": 1 },
+                        { "label": "Tuesday", "value": 2 },
+                        { "label": "Wednesday", "value": 4 },
+                        { "label": "Thursday", "value": 8 },
+                        { "label": "Friday", "value": 16 },
+                        { "label": "Saturday", "value": 32 },
+                        { "label": "Sunday", "value": 64 }
+                        ]
+                    }
+            }, {
+                "label": "Time HH:mm:ss",
+                "name": "Time",
+                "width": "100px",
+                "add": "",
+                
+                "edit": {
+                    "type": "ValidationTextBox"
+                    }
+            } 
+                ],
+            "values": []
+        },
+        {
+            "type": "List",
+            "name": "Offset",
+            "caption": "Offset Time",
+            "rowCount": 4,
+            "add": true,
+            "delete": true,
+            "sort": {
+                "column": "OffsetID",
+                "direction": "ascending"
+                },
+            "columns": [ {
+                "label": "ID",
+                "name": "OffsetID",
+                "width": "30px",
+                "add": "1",
+                "edit": {
+                    "type": "ValidationTextBox"
+                }
+            },{
+                "label": "minutes",
+                "name": "OffsetMin",
+                "width": "60px",
+                "add": 0,
+                "edit": {
+                    "type": "IntervalBox",
+                    "caption": "Minuten"
+                    }
+            }, {
+                "label": "action",
+                "name": "OffsetAktion",
+                "width": "100px",
+                "add": "Aktion",
+                "edit": {
+                    "type": "ValidationTextBox"
+                    }
+            },{
+					"label": "Colour",
+					"name": "OffsetColor",
+					"width": "auto",
+					"add": 16711680,
+                    "edit": {
+                    "type": "SelectColor",
+                    "caption": "Farbe"
+                    }
+				}
+                ],
+            "values": []
+        }
+
+    ],
+    "actions":
+    [ 
+            { "type": "Label", "label": "!!Caution an existing script will be overwritten!!" },
+            { "type": "Button", "label": "1. Create / overwrite script", "onClick": "WT_CreateAlarmSkript($id);" },
+            { "type": "Button", "label": "2. Update weekly schedule", "onClick": "WT_CreateWochenplan($id, false);" }
+                                
+
+    ],
+    "status":
+    [
+		{ "code": 101, "icon": "active", "caption": "Instance is created!" },
+        { "code": 102, "icon": "active", "caption": "Instance is active!" },
+		{ "code": 104, "icon": "inactive", "caption": "Instance is inactive!" },
+        { "code": 201, "icon": "error", "caption": "Please delete / save old script" },
+        { "code": 202, "icon": "error", "caption": "Doppelter Wochentag" },
+        { "code": 203, "icon": "error", "caption": "Doppelte Offset ID" },
+        { "code": 204, "icon": "error", "caption": "Doppelte Offset Zeit" },
+        { "code": 205, "icon": "error", "caption": "Double action name" },
+        { "code": 206, "icon": "error", "caption": "Double offset color" }
+
+	]
+}

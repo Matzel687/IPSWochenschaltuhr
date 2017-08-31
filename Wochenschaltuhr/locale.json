@@ -1,0 +1,34 @@
+{
+	"translations": {
+		"de": {
+            "WeeklyTimer": "Wochenschaltuhr",
+			"Name Timer": "Name Schaltuhr",
+			"Days / switching times": "Tage / Schaltzeiten",
+            "Day": "Tag",
+            "Monday": "Montag",
+            "Tuesday": "Dienstag",
+            "Wednesday": "Mittwoch",
+            "Thursday": "Donnerstag",
+            "Friday": "Freitag",
+            "Saturday": "Samstag",
+            "Sundaye": "Sonntag",
+            "Time HH:mm:ss": "Uhrzeit HH:mm:ss",
+            "Offset Time": "Offset Zeit",
+            "ID": "ID",
+            "minutes": "Minuten",
+            "action": "Aktion",
+            "Colour": "Farbe",
+            "!!Caution an existing script will be overwritten!!": "!!Achtung ein Vorhandenes Skript wird überschrieben!!",
+            "1. Create / overwrite script": "1. Skript anlegen / Überschreiben",
+            "2. Update weekly schedule": "2. Wochenplan Aktualisieren",
+            "Instance is created!": "Instanz wird erstellt!",
+            "Instance is active!": "Instanz ist aktiv!",
+            "Instance is inactive!": "Instanz ist inaktiv!",
+            "Please delete / save old script": "Altes Skript bitte löschen/sichern",
+            "Double weekday": "Doppelter Wochentag!",
+            "Double offset ID": "Doppelte Offset ID",
+            "Double action name": "Doppelter Aktionsname",
+            "Double offset color": "Doppelte Offset Farbe"
+		}
+	}
+}
