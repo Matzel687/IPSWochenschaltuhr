@@ -28,7 +28,15 @@
             "Double weekday": "Doppelter Wochentag!",
             "Double offset ID": "Doppelte Offset ID",
             "Double action name": "Doppelter Aktionsname",
-            "Double offset color": "Doppelte Offset Farbe"
+            "Double offset color": "Doppelte Offset Farbe",
+            "Weekly timer On / Off":"Wochenschaltuhr Ein/Aus",
+            "Take a new time": "Neue Zeit übernhemen",
+            "Reset":"Reset",
+            "New time":"Neue Zeit",
+            "#This script was created automatically by the module.":"#Dieses Skript wurde automatisch vom Modul angelegt.",
+            "#If the script is updated through the module configurator,":"#Wenn das Skript über den Modulkonfigurator aktualisiert wird, ",
+            "#will be overwritten !!":"#wird dieses überschrieben!!",
+            "#Please backup the contents before":"#Bitte vorher den Inhalt sichern"                  
 		}
 	}
 }

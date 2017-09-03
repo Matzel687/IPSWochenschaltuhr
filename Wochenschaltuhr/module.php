@@ -22,9 +22,9 @@
                 $this->RegisterPropertyString("Alarmname", "");
                 $this->RegisterPropertyString("Alarms", "");
                 $this->RegisterPropertyString("Offset", "");
-                $this->RegisterVariableBoolean("ArlamState", "Ein/Aus Schalten", "~Switch");
+                $this->RegisterVariableBoolean("ArlamState", $this->Translate("Weekly timer On / Off"), "~Switch");
 		        $this->EnableAction("ArlamState");   
-                $this->RegisterVariableBoolean("EditTime", "Neue Zeit übernhemen", "WT.NewTime");
+                $this->RegisterVariableBoolean("EditTime",$this->Translate("Take a new time"), "WT.NewTime");
 		        $this->EnableAction("EditTime");
                 $this->CreateTimerEvent("NewTime");
         
@@ -194,12 +194,12 @@
                     IPS_SetParent($ScriptID, $this->InstanceID);
                 }
                 if($data !== ""){
-                    $Scriptdata ='<?
-                    #Dieses Skript wurde automatisch vom Modul angelegt.
-                    #Wenn das Skript über den Konfigurator aktualisiert wird, 
-                    #wird dieses überschrieben!!
-                    #Bitte vorher den Inhalt sichern
-                    
+                    $Scriptdata ='<?';
+                    $Scriptdata.=$this->Translate("#This script was created automatically by the module.");                    
+                    $Scriptdata.=$this->Translate("#If the script is updated through the module configurator,");  
+                    $Scriptdata.=$this->Translate("#will be overwritten !!"); 
+                    $Scriptdata.=$this->Translate("#Please backup the contents before"); 
+                    $Scriptdata.='
                         if($IPS_SENDER == "TimerEvent"){
                             switch ($_IPS["ACTION"]) {';
                             foreach($data as $key => $value) {
@@ -316,8 +316,8 @@
                 if (IPS_VariableProfileExists($ProfileName) == false){
                     IPS_CreateVariableProfile($ProfileName, 0);
                     IPS_SetVariableProfileValues($ProfileName, 0, 1, 0);
-                    IPS_SetVariableProfileAssociation($ProfileName, 0, "Reset", "", 16711680);
-                    IPS_SetVariableProfileAssociation($ProfileName, 1, "Neue Zeit", "", 65280);
+                    IPS_SetVariableProfileAssociation($ProfileName, 0, $this->Translate("Reset"), "", 16711680);
+                    IPS_SetVariableProfileAssociation($ProfileName, 1, $this->Translate("New time"), "", 65280);
                  }
             }
     }
