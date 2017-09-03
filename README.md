@@ -36,10 +36,10 @@ Außerdem können die Startzeiten über das Web Front verändert werden.
 
 - Unter "Instanz hinzufügen" ist das 'Wochenschaltuhr' / 'WeeklyTimer'-Modul unter dem Hersteller '(Matzel687)' aufgeführt.  
 
-## Beispiel Konfigurationsformular
+### Beispiel Konfigurationsformular
 ![Bildtext](imgs/Konfigurationsformular.JPG "Bildtitel")
 
-# Vorgehensweise
+### Vorgehensweise
 1. Name Schaltuhr eintragen
 2. Wochentage und Uhrzeiten festlegen (keine doppelten Tage erlaubt.)
 3. Offset Zeit festlegen. (Jeder Wert darf nur einmal vorkommen.)
@@ -48,13 +48,13 @@ Außerdem können die Startzeiten über das Web Front verändert werden.
   * Wenn später eine Aktion Hinzugefügt wird muss das Skript neu angelegt werden.
     Achtung Das alte Skript wird überschrieben! Vorher den Inhalt sichern. 
 5. Button "Wochenplan Aktualisieren" klicken.
-  * Wenn Wochentage, Offset Zeiten geändert wurden muss der Wochenplan Aktualisiert werden. 
+  * Wenn Wochentage oder Offset Zeiten geändert wurden muss der Wochenplan Aktualisiert werden. 
 
-## Objektbaum 
+### Objektbaum 
 ![Bildtext](imgs/Objektbraum.JPG "Bildtitel")
 
-## Beispiel Objektbaum / Links für Web Front Anzeige
+### Beispiel Objektbaum / Links für Web Front Anzeige
 ![Bildtext](imgs/Objektbraum_Links.JPG "Bildtitel")
 
-## Beispiel Web Front
+### Beispiel Web Front
 ![Bildtext](imgs/Webfront.JPG "Bildtitel")
