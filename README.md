@@ -15,7 +15,7 @@ Außerdem können die Startzeiten über das Web Front verändert werden.
 
 * Erstellen einer Wochenschaltuhr (Wochenplan) über ein Konfigurationsformular
 * Beliebige Kombination von Wochentagen (jeder Tag darf nur einmal vorkommen).
-* Erstellen Aktionen im Konfigurationsformular.
+* Erstellen von Aktionen im Konfigurationsformular.
 * Einstellen der Offset Zeit für jede Aktion.
 * Erstellen eines Skriptes welches vom Wochenplan aufgerufen wird. 
   Wenn das Skript übers Modul Aktualisiert wird, wird dieses Überschrieben!
