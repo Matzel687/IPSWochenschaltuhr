@@ -58,3 +58,13 @@ Außerdem können die Startzeiten über das Web Front verändert werden.
 
 ### Beispiel Web Front
 ![Bildtext](imgs/Webfront.JPG "Bildtitel")
+
+### Wochenplan
+![Bildtext](imgs/Webfront_Wochenplan.JPG "Bildtitel")
+
+### Tage und Uhrzeit über Web Front ändern
+![Bildtext](imgs/Webfront_Webfront_NewTime.JPG "Bildtitel")
+### Vorgehensweise
+1. Wochentag/e und Uhrzeit auswählen.
+2. Dialog schließen
+3. Im Web Front auf "Neue Zeit klicken"
