@@ -39,7 +39,7 @@ Außerdem können die Startzeiten über das Web Front verändert werden.
 
 - Unter "Instanz hinzufügen" ist das 'Wochenschaltuhr' / 'WeeklyTimer'-Modul unter dem Hersteller '(Matzel687)' aufgeführt.  
 
-![Bildtext](imgs/Konfigurationsformular.jpg "Bildtitel")
+![Bildtext](imgs/Konfigurationsformular.JPG "Bildtitel")
 
 ### 7. PHP-Befehlsreferenz
 
