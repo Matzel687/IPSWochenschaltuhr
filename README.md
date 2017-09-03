@@ -1,7 +1,8 @@
-﻿# Wunderground
-Modul um Wetterdaten von Wunderground.com mittels Json abzurufen.
-Informationen zur API findet ihr hier. [Klick](https://www.wunderground.com/weather/api/d/docs)
-
+﻿# Wochenschaltuhr / WeeklyTimer
+Dieses Modul basiert auf dem Wochenplaner von IPS.
+Es können die Wochentage und Uhrzeiten über das Konfigurationsformular eingestellt werde. 
+Außerdem können die Startzeiten über das Web Front verändert werden.
+Über die Reset Funktion im Web Front wird die Ursprungs Konfiguration geladen 
 
 ### Inhaltverzeichnis
 

@@ -194,7 +194,7 @@
                     IPS_SetParent($ScriptID, $this->InstanceID);
                 }
                 if($data !== ""){
-                    $Scriptdata ='<?';
+                    $Scriptdata ='<?\n';
                     $Scriptdata.=$this->Translate("#This script was created automatically by the module.");                    
                     $Scriptdata.=$this->Translate("#If the script is updated through the module configurator,");  
                     $Scriptdata.=$this->Translate("#will be overwritten !!"); 
