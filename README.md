@@ -2,7 +2,7 @@
 Dieses Modul basiert auf dem Wochenplaner von IPS.
 Es können die Wochentage und Uhrzeiten über das Konfigurationsformular eingestellt werde. 
 Außerdem können die Startzeiten über das Web Front verändert werden.
-Über die Reset Funktion im Web Front wird die Ursprungs Konfiguration geladen 
+Über die Reset Funktion im Web Front wird die Ursprungs Konfiguration geladen. 
 
 ### Inhaltverzeichnis
 
@@ -16,83 +16,30 @@ Außerdem können die Startzeiten über das Web Front verändert werden.
 
 ### 1. Funktionsumfang
 
-* Abrufen der aktuellen Wetterdaten und speichern in Variablen
-* Aktivieren bzw. Deaktivierung des Variablen Loggins direkt aus dem Modul heraus.
-* Eigene Icon Sets oder die von [Wunderground](https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets).
-* Unterscheidung der Icons (TAG/Nacht)
-* Abrufen der Wetterdaten für die nächsten 24 Stunden (Stundenweise) Daten werden in einem Array gespeichert welches JSON decodiert ist.
-  Zur eigenen Nutzung in Skripten.
-* Abrufen der Wetterdaten für die nächsten 3 Tage (Tagesweise) Daten werden in einem Array gespeichert welches JSON decodiert ist.
-  Zur eigenen Nutzung in Skripten.
-* Abruf von Wetterwarnungen. Daten werden in einem Array gespeichert welches JSON decodiert ist.
+* Erstellen einer Wochenschaltuhr (Wochenplan) über ein Konfigurationsformular
+* Beleibige Kombination von Wochentagen (jeder Tag darf nur einmal vorkommen).
+* Erstellen Aktionen im Konfigurationsformular.
+* Einstellen der Offset Zeit für jede Aktion.
+* Erstellen eines Skriptes welches vom Wochenplan aufgerufen wird. 
+  Wenn das Skript übers Modul Aktualisiert wird, wird dieses Überschriebn !
+* Ändern der Wochentage und der Start Uhrzeiten übers Webfront
+* Reset der Wohentage und der Start Uhrzeiten übers Webfront. 
+  Es werden wieder die Tage und Zeiten aus dem Konfigurationsformular übernommen.
 
 ### 2. Voraussetzungen
 
-- IP-Symcon ab Version 4.x
-- Wunderground API-Key ([Information um einen Account zu erstellen](https://www.wunderground.com/weather/api/))
+- IP-Symcon ab Version 4.3
 
 ### 3. Software-Installation
 
 Über das Modul-Control folgende URL hinzufügen.  
-`https://github.com/Matzel687/Wunderground.git`  
+`https://github.com/Matzel687/IPSWochenschaltuhr.git`  
 
 ### 4. Einrichten der Instanzen in IP-Symcon
 
-- Unter "Instanz hinzufügen" ist das 'WundergroundWetter'-Modul unter dem Hersteller '(Sonstige)' aufgeführt.  
+- Unter "Instanz hinzufügen" ist das 'Wochenschaltuhr' / 'WeeklyTimer'-Modul unter dem Hersteller '(Matzel687)' aufgeführt.  
 
-__Konfigurationsseite__:
 
-Name                              | Beschreibung
---------------------------------- | ---------------------------------
-Wetterstation                     | Wetterstation, von der die Daten entnommen werden sollen. Den Namen der Wetterstation könnt ihr auf der www.wunderground.com Seite herausfinden. Zulässig sind Stationsnamen pws:XXXXXX , Koordinaten zws:XXXXXX oder Städtenamen.
-API Key                           | Wunderground API-Key. Kann auf der Wunderground Homepage nach Registrierung angefordert werden. "More"->"Weather API for Developers".
-Wetter Icon Pfad                  | Hier könnt ihr den Pfad zu euren eigenen Wetter Icons angeben oder die Icons von [Wunderground](https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets) nutzen. Bei eigenen Icons müssen diese im  "\IP-Symcon\webfront\user" Ordner liegen.
-Icon Datei Type                   | Dateityp von euren eigenen Icons z.B. Jpeg, Png, Gif. Wenn die Wunderground Icons verwendet werden, muss hier "Gif" eingetragen werden.
-Update Wetterdaten alle X Minuten | Hier könnt ihr einstellen in welchen Zeitraum die Wetterdaten abgerufen werden sollen. (Ihr habt 500 Abrufe pro Tag umsonst)
-Update Wetterwarnung alle X Minuten | Hier könnt ihr einstellen in welchen Zeitraum die Wetterwarnungen abgerufen werden sollen. (Dies ist ein separater Abruf der API und wird extra von eurem Tageskontingent abgezogen)
-Sunrise                           | Variable für den Sonnenaufgang z.B.  aus der Location Control. Wird benötigt um die Icons umzuschalten Tag/Nacht Modus
-Sunset                            | Variable für den Sonnenuntergang z.B.  aus der Location Control. Wird benötigt um die Icons umzuschalten Tag/Nacht Modus
-
-### 5. Statusvariablen und Profile
-
-Die Statusvariablen/Kategorien werden automatisch angelegt. Das Löschen einzelner kann zu Fehlfunktionen führen.
-
-Name                    | Typ       | Beschreibung
------------------------ | --------- | ----------------
-UpdateWetterDaten       | Event     | Ruft die Wetterdaten alle x Minuten ab
-UpdateWetterWarnung     | Event     | Ruft die Wetterwarnungen alle x Minuten ab
-Temperatur              | Float     | Angabe in °C
-Temperatur gefühlt      | Float     | Angabe in °C
-Temperatur Taupunkt     | Float     | Angabe in °C
-Luftfeuchtigkeit        | Float     | Angabe in %
-Luftdruck               | Float     | Angabe in hPa
-Windrichtung            | Float     | Angabe in Himmelsrichtungen
-Windgeschwindigkeit     | Float     | Angabe in km/h
-Windböe                 | Float     | Angabe in km/h
-Niederschlag/h          | Float     | Angabe in Liter/m²
-Niederschlag Tag        | Float     | Angabe in Liter/m²
-Sonnenstrahlung         | Float     | Angabe in W/m²
-Sichtweite              | Float     | Angabe in km
-UV Strahlung            | Integer   | Informationen: [UVIndex Erklärung](https://www.wunderground.com/resources/health/uvindex.asp)
-WetterIcon              | String    | Icon Link für das Aktuelle Wetter.
-WeatherNextDaysData     | String    | Wetterdaten für die nächsten 3 Tage. Die Daten sind JSON decodiert. 
-WeatherNextHoursData    | String    | Wetterdaten für die nächsten 24 Stunden. Die Daten sind JSON decodiert.
-WeatherAlerts           | String    | Wetterwarnungen. Die Daten sind JSON decodiert.
-Text                    | String    | Wettertext z.B. "Leichter Regen"
-
-##### Profile:
-
-Name             | Typ
----------------- | -------
-WD_WindSpeed_kmh | Float
-WD_Niederschlag  | Float
-WD.Sonnenstrahlung| Float
-WD.Sichtweite    | Float
-WD_UV_Index      | Integer
-
-### 6. WebFront
-
-Über das WebFront werden die Variablen angezeigt. Es ist keine weitere Steuerung oder gesonderte Darstellung integriert.
 
 ### 7. PHP-Befehlsreferenz
 

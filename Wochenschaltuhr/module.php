@@ -194,11 +194,15 @@
                     IPS_SetParent($ScriptID, $this->InstanceID);
                 }
                 if($data !== ""){
-                    $Scriptdata ='<?\n';
-                    $Scriptdata.=$this->Translate("#This script was created automatically by the module.");                    
-                    $Scriptdata.=$this->Translate("#If the script is updated through the module configurator,");  
-                    $Scriptdata.=$this->Translate("#will be overwritten !!"); 
-                    $Scriptdata.=$this->Translate("#Please backup the contents before"); 
+                    $Scriptdata ='<?';
+                    $Scriptdata.=$this->Translate("
+                    #This script was created automatically by the module.");                    
+                    $Scriptdata.=$this->Translate("
+                    #If the script is updated through the module configurator,");  
+                    $Scriptdata.=$this->Translate("
+                    #will be overwritten !!"); 
+                    $Scriptdata.=$this->Translate("
+                    #Please backup the contents before"); 
                     $Scriptdata.='
                         if($IPS_SENDER == "TimerEvent"){
                             switch ($_IPS["ACTION"]) {';
