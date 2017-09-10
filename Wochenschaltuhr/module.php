@@ -141,9 +141,11 @@
         public function CreateWochenplan($Webfront = false)
             {
                 $Alarms = $this->CreateConfigArray($Webfront);
-                $Ident = $this->ReadPropertyString("Alarmname");      //Wochenplan Name
-                $ParentID = @IPS_GetObjectIDByIdent($Ident,$this->InstanceID );
-                $EreignisID = @IPS_GetObjectIDByIdent($Ident, $ParentID);  //Wochenplan ID
+                $EreignisName = $this->ReadPropertyString("Alarmname");
+                $EreignisIdent = "weeklyplan";     //Wochenplan Name
+                $ParentIdent ="ActionScript";
+                $ParentID = @IPS_GetObjectIDByIdent($ParentIdent,$this->InstanceID );
+                $EreignisID = @IPS_GetObjectIDByIdent($EreignisIdent, $ParentID);  //Wochenplan ID
            
                 //Alte Tage und Zeiten löschen
                 if($EreignisID >0 ){
@@ -164,8 +166,8 @@
                     foreach ($Alarms["Groups"] as $GruppenID => $Tage ) {              
                         IPS_SetEventScheduleGroup($EreignisID, $GruppenID, $Tage); // 1=Mo, 2=Di, 4=Mi, 8=Do, 16=Fr, 32=Sa, 64= So
                         IPS_SetParent($EreignisID, $ParentID);
-                        IPS_SetName( $EreignisID, $Ident);
-                        IPS_SetIdent( $EreignisID,$Ident);
+                        IPS_SetName( $EreignisID, $EreignisName);
+                        IPS_SetIdent( $EreignisID,$EreignisIdent);
                         IPS_SetEventActive($EreignisID, true);                  
                     }
                 }
@@ -186,11 +188,12 @@
             {
                 $data = json_decode($this->ReadPropertyString("Offset"));
                 $ScriptName = $this->ReadPropertyString("Alarmname");
-                $ScriptID = @IPS_GetObjectIDByIdent($ScriptName, $this->InstanceID);  //Wenn kein Skript vorhanden erstelle einen neuen.
+                $ScriptIdent = "ActionScript";
+                $ScriptID = @IPS_GetObjectIDByIdent($ScriptIdent, $this->InstanceID);  //Wenn kein Skript vorhanden erstelle einen neuen.
                 if($ScriptID === false) {
                     $ScriptID = IPS_CreateScript(0);
                     IPS_SetName($ScriptID, $ScriptName);
-                    IPS_SetIdent( $ScriptID,$ScriptName);
+                    IPS_SetIdent( $ScriptID,$ScriptIdent);
                     IPS_SetParent($ScriptID, $this->InstanceID);
                 }
                 if($data !== ""){
@@ -207,7 +210,7 @@
                     ';    
                     $Scriptdata.=$this->Translate("#Please backup the contents before"); 
                     $Scriptdata.='
-                        if($IPS_SENDER == "TimerEvent"){
+                        if($_IPS["SENDER"] == "TimerEvent"){
                             switch ($_IPS["ACTION"]) {';
                             foreach($data as $key => $value) {
                                 $Scriptdata.= '
@@ -239,9 +242,10 @@
 
         protected function WochenplanAuslesen()
             {
-                $EreignisName = $this->ReadPropertyString("Alarmname");      //Wochenplan Name
-                $ParentID = @IPS_GetObjectIDByName($EreignisName,$this->InstanceID );
-                $EreignisID = @IPS_GetEventIDByName($EreignisName, $ParentID);  //Wochenplan ID
+                $ParentIdent ="ActionScript";
+                $EreignisIdent = "weeklyplan";      //Wochenplan Name
+                $ParentID = @IPS_GetObjectIDByName($ParentIdent,$this->InstanceID );
+                $EreignisID = @IPS_GetEventIDByName($EreignisIdent, $ParentID);  //Wochenplan ID
                 if ($EreignisID === false){
                     return false;
                 }
@@ -307,9 +311,10 @@
 
         public function OpjektAktiv($value) 
             {
-                $EreignisName = $this->ReadPropertyString("Alarmname");      //Wochenplan Name
-                $ParentID = @IPS_GetObjectIDByName($EreignisName,$this->InstanceID );
-                $EreignisID = @IPS_GetEventIDByName($EreignisName, $ParentID);  //Wochenplan ID
+                $ParentIdent ="ActionScript";
+                $EreignisIdent = "weeklyplan";      //Wochenplan Name
+                $ParentID = @IPS_GetObjectIDByName($ParentIdent,$this->InstanceID );
+                $EreignisID = @IPS_GetEventIDByName($EreignisIdent, $ParentID);  //Wochenplan ID
                 if (IPS_SetEventActive($EreignisID, $value) == true ){
                     SetValue($this->GetIDForIdent("ArlamState"), $value);
                     return $value;
