@@ -244,8 +244,8 @@
             {
                 $ParentIdent ="ActionScript";
                 $EreignisIdent = "weeklyplan";      //Wochenplan Name
-                $ParentID = @IPS_GetObjectIDByName($ParentIdent,$this->InstanceID );
-                $EreignisID = @IPS_GetEventIDByName($EreignisIdent, $ParentID);  //Wochenplan ID
+                $ParentID = @IPS_GetObjectIDByIdent($ParentIdent,$this->InstanceID );
+                $EreignisID = @IPS_GetObjectIDByIdent($EreignisIdent, $ParentID);  //Wochenplan ID
                 if ($EreignisID === false){
                     return false;
                 }
@@ -313,8 +313,8 @@
             {
                 $ParentIdent ="ActionScript";
                 $EreignisIdent = "weeklyplan";      //Wochenplan Name
-                $ParentID = @IPS_GetObjectIDByName($ParentIdent,$this->InstanceID );
-                $EreignisID = @IPS_GetEventIDByName($EreignisIdent, $ParentID);  //Wochenplan ID
+                $ParentID = @IPS_GetObjectIDByIdent($ParentIdent,$this->InstanceID );
+                $EreignisID = @IPS_GetObjectIDByIdent($EreignisIdent, $ParentID);  //Wochenplan ID
                 if (IPS_SetEventActive($EreignisID, $value) == true ){
                     SetValue($this->GetIDForIdent("ArlamState"), $value);
                     return $value;
